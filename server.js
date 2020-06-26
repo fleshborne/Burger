@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 8080;
 const exphbs = require("express-handlebars");
 const app = express();
 
