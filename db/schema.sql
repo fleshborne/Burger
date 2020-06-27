@@ -8,5 +8,6 @@ CREATE TABLE burgers (
  id INT AUTO_INCREMENT NOT NULL,
  burger_name VARCHAR(255) NOT NULL,
  devoured boolean,
+ createdAt TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
  PRIMARY KEY(id)
 );
