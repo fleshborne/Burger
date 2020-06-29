@@ -29,7 +29,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-let orm = {
+const orm = {
   all: (tableInput, cb) => {
     let query = `SELECT * FROM ${tableInput};`;
     connection.query(query, (err, result) => {
