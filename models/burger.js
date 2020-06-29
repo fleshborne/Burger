@@ -1,19 +1,25 @@
 const orm = require("../config/orm");
-const query = new orm();
-// Create burger class
 
-class Burger {
-  constructor() {}
-  selectAll() {
-    return query.selectAll();
-  }
-
-  insertOne(name) {
-    return query.insertOne(name);
-  }
-  updateOne(id, state) {
-    return query.updateOne(id, state);
-  }
-}
-
-module.exports = Burger;
+const burger = {
+  all: (cb) => {
+    orm.all("burgers", (results) => {
+      cb(results);
+    });
+  },
+  create: (cols, vals, cb) => {
+    orm.create("burgers", cols, vals, (res) => {
+      cb(res);
+    });
+  },
+  update: (objColVals, condition, cb) => {
+    orm.update("burgers", objColVals, condition, (res) => {
+      cb(res);
+    });
+  },
+  delete: (condition, cb) => {
+    orm.delete("burgers", condition, (res) => {
+      cb(res);
+    });
+  },
+};
+module.exports = burger;
