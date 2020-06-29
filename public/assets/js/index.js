@@ -5,50 +5,51 @@ $(() => {
 
     let newBurger = {
       burger_name: $("#newBurger").val().trim(),
-      devoured: false,
+      devoured: 0,
     };
     // send post request
     $.ajax("/api/burgers", {
       type: "POST",
       data: newBurger,
-    })
-      .then(() => {
-        console.log(`Time to eat burger ${this.burger_name}`);
-        // this reload page for updated list
-        location.reload();
-      })
-      .catch((err) => window.alert(err))
-      .finally(() => this.setState({ loadingResults: false }));
+    }).then(() => {
+      console.log(`Time to eat burger ${this.burger_name}`);
+      // this reload page for updated list
+      location.reload();
+    });
+    //   .catch((err) => window.alert(err))
+    //   .finally(() => this.setState({ loadingResults: false }));
   });
 
   $(".eatBtn").on("click", (event) => {
+    event.preventDefault();
+
     let id = $(this).data("id");
-    let devoured = true;
+
+    let devoured = 1;
 
     $.ajax("api/burgers/" + id, {
       type: "PUT",
       data: devoured,
-    })
-      .then(() => {
-        console.log("IT EAT");
-        location.reload();
-      })
-      .catch((error) => window.alert(error))
-      .finally(() => this.setState({ loadingResults: false }));
+    }).then(() => {
+      console.log("IT EAT");
+      location.reload();
+    });
+    //   .catch((error) => window.alert(error))
+    //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $(".destroyIt").on("click", (event) => {
+  $(".destroyIt").on("click", function (event) {
+    event.preventDefault();
     let id = $(this).data("id");
     //   send delete request
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "DELETE",
-    })
-      .then(() => {
-        console.log("burger went boom", id);
-        // reload page
-        location.reload();
-      })
-      .catch((error) => window.alert(error))
-      .finally(() => this.setState({ loadingResults: false }));
+    }).then(() => {
+      console.log("burger went boom", id);
+      // reload page
+      location.reload();
+    });
+    //   .catch((error) => window.alert(error))
+    //   .finally(() => this.setState({ loadingResults: false }));
   });
 });

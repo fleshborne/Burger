@@ -5,17 +5,17 @@ create the methods that will execute the necessary MySQL commands in the control
 These are the methods you will need to use in order to retrieve and store data in your database. 
 */
 function printQuestionMarks(num) {
-  const arr = [];
-  for (const i = 0; i < num; i++) {
+  let arr = [];
+  for (let i = 0; i < num; i++) {
     arr.push("?");
   }
   return arr.toString();
 }
 function objToSql(ob) {
-  const arr = [];
+  let arr = [];
   // loop through the keys and push the key/value as a string int arr
-  for (const key in ob) {
-    const value = ob[key];
+  for (let key in ob) {
+    let value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
       if (typeof value === "string" && value.indexOf("") >= 0) {
@@ -29,7 +29,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-const orm = {
+let orm = {
   all: (tableInput, cb) => {
     let query = `SELECT * FROM ${tableInput};`;
     connection.query(query, (err, result) => {
@@ -40,9 +40,9 @@ const orm = {
     });
   },
   create: (table, cols, vals, cb) => {
-    let query = `INSERT INTO ${table}`;
+    let query = "INSERT INTO " + table;
     query += " (";
-    query += cols.to();
+    query += cols.toString();
     query += ") ";
     query += "VALUES (";
     query += printQuestionMarks(vals.length);
@@ -56,7 +56,7 @@ const orm = {
       cb(result);
     });
   },
-  update: (table, ObjColVals, condition, cb) => {
+  update: (table, objColVals, condition, cb) => {
     let query = "UPDATE " + table;
 
     query += " SET ";
