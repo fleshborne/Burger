@@ -1,15 +1,15 @@
 $(() => {
-  $(".create-form").on("submit", (event) => {
+  $('.create-form').on('submit', (event) => {
     // make sure you preventDefault on a submit event
     event.preventDefault();
 
     let newBurger = {
-      burger_name: $("#newBurger").val().trim(),
+      burger_name: $('#newBurger').val().trim(),
       devoured: 0,
     };
     // send post request
-    $.ajax("/api/burgers", {
-      type: "POST",
+    $.ajax('/api/burgers', {
+      type: 'POST',
       data: newBurger,
     }).then(() => {
       console.log(`Time to eat burger ${this.burger_name}`);
@@ -20,34 +20,34 @@ $(() => {
     //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $("#eatBtn").on("click", (event) => {
+  $('#eatBtn').on('click', (event) => {
     event.preventDefault();
 
-    let id = $(this).data("id");
+    let id = $(this).data('id');
 
     let devoured = {
       devoured: 1,
     };
 
-    $.ajax("api/burgers/" + id, {
-      type: "PUT",
+    $.ajax('api/burgers/' + id, {
+      type: 'PUT',
       data: devoured,
     }).then(() => {
-      console.log("IT EAT");
+      console.log('IT EAT');
       location.reload();
     });
     //   .catch((error) => window.alert(error))
     //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $("#destroyBtn").on("click", function (event) {
+  $('#destroyBtn').on('click', (event) => {
     event.preventDefault();
-    let id = $(this).data("id");
+    let id = $(this).data('id');
     //   send delete request
-    $.ajax("/api/burgers/" + id, {
-      type: "DELETE",
+    $.ajax('/api/burgers/' + id, {
+      type: 'DELETE',
     }).then(() => {
-      console.log("burger went boom", id);
+      console.log('burger went boom', id);
       // reload page
       location.reload();
     });
