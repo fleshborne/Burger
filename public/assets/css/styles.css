@@ -10,15 +10,16 @@ ul {
 
 h2 {
   font-weight: bold;
-  color: black;
+  color: white;
 }
 .panel-heading {
   font-weight: bold;
   color: white;
 }
 .panel-body {
+  margin-bottom: 5px;
   font-weight: bold;
-  color: aqua;
+  color: white;
 }
 .create-form {
   padding: 5px;
@@ -28,7 +29,4 @@ h2 {
 span {
   font-weight: bold;
   color: floralwhite;
-}
-.panel-body {
-  margin-bottom: 5px;
 }
