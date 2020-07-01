@@ -1,4 +1,4 @@
-$(() => {
+$(function () {
   $('.create-form').on('submit', (event) => {
     // make sure you preventDefault on a submit event
     event.preventDefault();
@@ -20,18 +20,18 @@ $(() => {
     //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $('#eatBtn').on('click', (event) => {
+  $('.eatIt').on('click', (event) => {
     event.preventDefault();
 
-    let id = $(this).data('id');
+    // let id = $(this).data('id');
 
-    let devoured = {
+    let newDevoured = {
       devoured: 1,
     };
 
     $.ajax('api/burgers/' + id, {
       type: 'PUT',
-      data: devoured,
+      data: newDevoured,
     }).then(() => {
       console.log('IT EAT');
       location.reload();
@@ -40,8 +40,8 @@ $(() => {
     //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $('#destroyBtn').on('click', (event) => {
-    event.preventDefault();
+  $('.destroyIt').on('click', (event) => {
+    // event.preventDefault();
     let id = $(this).data('id');
     //   send delete request
     $.ajax('/api/burgers/' + id, {

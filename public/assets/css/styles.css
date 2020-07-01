@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://images.immediate.co.uk/production/volatile/sites/2/2015/08/12812.jpg?webp=true&quality=90&resize=728%2C309");
+  background-image: url('https://img.cinemablend.com/filter:scale/quill/9/6/6/3/7/a/96637aabb562881adec1336c0d78acc6cc5d1403.jpg?fw=375');
 }
 
 ul {
@@ -8,18 +8,13 @@ ul {
   background: aqua;
 }
 
-h1 {
-  font-weight: bold;
-  color: aqua;
-}
-
 h2 {
   font-weight: bold;
-  color: aqua;
+  color: black;
 }
 .panel-heading {
   font-weight: bold;
-  color: aqua;
+  color: white;
 }
 .panel-body {
   font-weight: bold;
@@ -28,7 +23,7 @@ h2 {
 .create-form {
   padding: 5px;
   margin: 5px;
-  background: aqua;
+  /* background: aqua; */
 }
 span {
   font-weight: bold;

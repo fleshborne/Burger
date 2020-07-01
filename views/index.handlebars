@@ -2,7 +2,6 @@
     <nav class="navbar navbar-light bg-light">
   <span class="navbar-brand mb-0 h1">EAT IT</span>
 </nav>
-<h1> EAT IT</h1>
 <br>
 <h2> INSERT FOR EAT</h2>
 <panel>
@@ -24,7 +23,7 @@
           <ul>
             {{#each burgers}}
             {{#unless devoured}}
-              <span>{{this.burger_name}}</span>
+              <span>{{this.id}} - {{this.burger_name}}</span>
               <button type="button" class="eatIt bt btn-warning" id="eatBtn" data-id="{{this.id}}"
               data-newDevoured="{{devour}}"> <i class="fa fa-fighter-jet"></i></button>
             {{/unless}}
@@ -42,7 +41,7 @@
           <ul>
             {{#each burgers}}
             {{#if devoured}}
-              <span>{{this.burger_name}}</span>
+              <span>{{this.id}} - {{this.burger_name}}</span>
               <button type="button" class="destroyIt bt btn-warning" id="destroyBtn" data-id="{{this.id}}"
               data-newDevoured="{{devour}}"> <i class="fa fa-fighter-jet"></i></button>
             {{/if}}
