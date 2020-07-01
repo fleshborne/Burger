@@ -20,12 +20,14 @@ $(() => {
     //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $(".eatBtn").on("click", (event) => {
+  $("#eatBtn").on("click", (event) => {
     event.preventDefault();
 
     let id = $(this).data("id");
 
-    let devoured = 1;
+    let devoured = {
+      devoured: 1,
+    };
 
     $.ajax("api/burgers/" + id, {
       type: "PUT",
@@ -38,7 +40,7 @@ $(() => {
     //   .finally(() => this.setState({ loadingResults: false }));
   });
 
-  $(".destroyIt").on("click", function (event) {
+  $("#destroyBtn").on("click", function (event) {
     event.preventDefault();
     let id = $(this).data("id");
     //   send delete request
